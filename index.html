@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>PokeDex</title>
+  </head>
+  <body>
+    <header>
+      <h1>PokeDex App</h1>
+      <nav>
+        <a href="">Repository</a>
+        <a href="https://pokeapi.co/">PokeAPI</a>
+        <a href="">About</a>
+      </nav>
+    </header>
+    <div class="hero">
+      <figure>
+        <img src="./assets/img/Pokemon-Logo-Transparent-Image.png" alt="" />
+      </figure>
+      <p>
+        <span>Hello there !</span> Welcome to The PokeDex App. This app can
+        provide you all what you need to know about Pokemons, please don't
+        forget enjoy.
+      </p>
+      <p>Built with Love &#128154;</p>
+      <p>
+        <span class="credits"
+          >All the information was taken from
+          <a href="https://pokeapi.co/">PokeApi</a></span
+        >
+      </p>
+    </div>
+    <form name="pokemonName">
+      <label for="name"
+        >Nombre
+        <input type="text" name="" id="name" />
+      </label>
+      <button>Burcar</button>
+    </form>
+    <label for="">
+      Tipo:
+      <select name="pokemonType" id="typeSelect">
+        <option value="Normal">Normal</option>
+        <option value="Fire">Fire</option>
+        <option value="Water">Water</option>
+        <option value="Grass">Grass</option>
+        <option value="Flying">Flying</option>
+        <option value="Fighting">Fighting</option>
+        <option value="Poison">Poison</option>
+        <option value="Electric">Electric</option>
+        <option value="Ground">Ground</option>
+        <option value="Rock">Rock</option>
+        <option value="Psychic">Psychic</option>
+        <option value="Ice">Ice</option>
+        <option value="Bug">Bug</option>
+        <option value="Ghost">Ghost</option>
+        <option value="Steel">Steel</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Dark">Dark</option>
+        <option value="Fairy">Fairy</option>
+      </select>
+      <button type="button" class="button_principal">Buscar</button>
+    </label>
+    <button type="button" class="button_principal">Ver Todos</button>
+    <button type="button" class="button_principal">Ver Primeros 10</button>
+    <div class="cards_container" id="cards"></div>
+    <script src="./assets/index.js"></script>
+  </body>
+</html>

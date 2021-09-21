@@ -1,0 +1,11 @@
+.button_principal {
+  border-radius: 10px;
+  background-color: #ef5350;
+  @include button;
+}
+
+.card_button {
+  width: 100%;
+  background-color: #feca1b;
+  @include button;
+}
