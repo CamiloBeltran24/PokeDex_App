@@ -5,6 +5,16 @@ async function getData() {
   const data = await response.json();
   return data.results;
 }
+function getAllPokemon(url) {
+  const limit = "?limit=1200";
+  const new_url = `https://pokeapi.co/api/v2/pokemon/${limit}`;
+  fetch(new_url)
+    .then((response) => response.json())
+    .then((data) => {
+      data.results.forEach((pokemon) => getPokemon(pokemon.name));
+    })
+    .catch((error) => console.error(error));
+}
 async function getPokemon(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   const response = await fetch(url);
@@ -16,7 +26,7 @@ async function getPokemon(name) {
 }
 async function getTopPokemon() {
   const data = await getData();
-  const names = data.slice(0, 15).map((data) => {
+  const names = data.slice(0, 10).map((data) => {
     getPokemon(data.name);
   });
 }
@@ -29,4 +39,4 @@ function printPokemon(data, image) {
     </div>`;
 }
 
-getTopPokemon();
+// getTopPokemon();
