@@ -1,4 +1,18 @@
 const url = "https://pokeapi.co/api/v2/pokemon/";
+let btn_all = document.getElementById("btn_all");
+let btn_name = document.getElementById("searchByName");
+btn_name.addEventListener("click", () => {
+  let name = document.getElementById("name").value;
+  if (name !== undefined && name !== null && name !== " ") {
+    getPokemon(name);
+  } else {
+    const alert_box = document.createElement("div");
+    alert_box.innerHTML =
+      "<p>WhoooOps, lo siento, no encuentro tu pokemon Favorito</p>";
+  }
+});
+
+// btn_all.addEventListener("click", getAllPokemon(url));
 
 async function getData() {
   const response = await fetch(url);
@@ -19,9 +33,9 @@ async function getPokemon(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data);
   const image = data.sprites.other.dream_world.front_default;
   console.log(image);
-  console.log(data);
   printPokemon(data, image);
 }
 async function getTopPokemon() {

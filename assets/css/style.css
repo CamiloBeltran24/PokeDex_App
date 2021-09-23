@@ -52,7 +52,8 @@ header nav a:hover {
 .button_principal {
   border-radius: 10px;
   background-color: #ef5350;
-  padding: 10px;
+  display: inline-block;
+  padding: 1.2rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -62,7 +63,8 @@ header nav a:hover {
 .card_button {
   width: 100%;
   background-color: #feca1b;
-  padding: 10px;
+  display: inline-block;
+  padding: 1.2rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -123,7 +125,65 @@ header nav a:hover {
 
 .search_forms {
   width: 100%;
-  height: 200px;
+  height: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
+}
+.search_forms form {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+.search_forms form p {
+  text-align: center;
+  color: #3a3a3a;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.search_forms form label {
+  width: 100%;
+  color: #3a3a3a;
+  font-family: "Roboto", sans-serif;
+}
+.search_forms form label input,
+.search_forms form label select {
+  width: 70%;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #3a3a3a;
+  outline: none;
+  font-size: 1.6rem;
+}
+.search_forms form label input:focus,
+.search_forms form label select:focus {
+  border-color: #feca1b;
+}
+.search_forms form label button {
+  font-size: 1.6rem;
+  margin-left: 1.5rem;
+}
+.search_forms hr {
+  width: 80%;
+  height: 0.25rem;
+  margin: 0 auto;
+  color: #ef5350;
+  background-color: #ef5350;
+}
+.search_forms .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+}
+.search_forms .buttons button {
+  width: 150px;
+  margin-top: 1rem;
+  font-size: 1.6rem;
 }
 
 .cards_container {

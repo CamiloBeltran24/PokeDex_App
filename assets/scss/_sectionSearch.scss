@@ -1,4 +1,62 @@
 .search_forms {
   width: 100%;
-  height: 200px;
+  height: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: $Font-text;
+  font-size: $Text-size;
+  form {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    p {
+      text-align: center;
+      color: rgb(58, 58, 58);
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      width: 100%;
+      // padding: 1rem;
+      color: rgb(58, 58, 58);
+      font-family: $Font-text;
+      input,
+      select {
+        width: 70%;
+        height: 3rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid rgb(58, 58, 58);
+        outline: none;
+        font-size: 1.6rem;
+        &:focus {
+          border-color: $secondaryColor;
+        }
+      }
+      button {
+        font-size: 1.6rem;
+        margin-left: 1.5rem;
+      }
+    }
+  }
+  hr {
+    width: 80%;
+    height: 0.25rem;
+    margin: 0 auto;
+    color: $principalColor;
+    background-color: $principalColor;
+  }
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    button {
+      width: 150px;
+      margin-top: 1rem;
+      font-size: 1.6rem;
+    }
+  }
 }
