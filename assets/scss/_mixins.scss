@@ -6,3 +6,17 @@
   cursor: pointer;
   color: #f2f2f2;
 }
+
+@mixin alertButtons{
+  display: inline-block;
+  padding: 1.3rem 2.5rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  //border: 1px solid #fff;
+  color: $principalColor;
+  font-size: 2rem;
+  font-family: $Font-text;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.7);
+}

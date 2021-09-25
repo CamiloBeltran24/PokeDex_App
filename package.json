@@ -5,7 +5,8 @@
   "main": "./assets/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server"
+    "start": "live-server",
+    "sass": "sass --watch ./assets/scss/style.scss ./assets/css/style.css"
   },
   "keywords": [
     "API",
@@ -16,6 +17,6 @@
   "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.1",
-    "sass": "^1.42.0"
+    "sass": "^1.42.1"
   }
 }

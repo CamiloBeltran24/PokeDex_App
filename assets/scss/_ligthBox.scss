@@ -1,0 +1,68 @@
+.lightBox {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.603);
+  z-index: 100;
+  .alert {
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    padding: 2.5rem;
+    background-color: $principalColor;
+    border-radius: 0.8rem;
+    h3 {
+      font-size: 2.2rem;
+      font-family: $Font-title;
+      margin: 1.5rem 0;
+    }
+    p {
+      font-family: $Font-text;
+      font-size: 1.8rem;
+      margin: 1.5rem 0 0.7rem 0;
+      span {
+        font-weight: 700;
+      }
+    }
+    a {
+      @include alertButtons;
+    }
+  }
+  .card {
+    width: 80%;
+    padding: 2rem;
+    height: auto;
+    text-align: center;
+    background-color: #fff;
+    color: $principalColor;
+    border-radius: 1rem;
+    h3 {
+      margin: 1.5rem;
+      font-size: 2.5rem;
+      font-family: $Font-text;
+      text-transform: capitalize;
+    }
+    .stats {
+      width: 100%;
+      height: auto;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      li {
+        font-size: 1.8rem;
+        list-style: none;
+      }
+    }
+    a {
+      @include alertButtons;
+      background-color: $principalColor;
+      color: #fff;
+    }
+  }
+}

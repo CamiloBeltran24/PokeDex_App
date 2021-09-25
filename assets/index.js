@@ -1,19 +1,20 @@
 const url = "https://pokeapi.co/api/v2/pokemon/";
-let btn_all = document.getElementById("btn_all");
-let btn_name = document.getElementById("searchByName");
-btn_name.addEventListener("click", () => {
-  let name = document.getElementById("name").value;
-  if (name !== undefined && name !== null && name !== " ") {
+const btn_all = document.getElementById("btn_all");
+const btn_name = document.getElementById("searchByName");
+
+btn_name.onclick = function () {
+  const name = document.getElementById("name").value;
+  if (name !== undefined && name !== null && name !== "") {
     getPokemon(name);
   } else {
-    const alert_box = document.createElement("div");
-    alert_box.innerHTML =
-      "<p>WhoooOps, lo siento, no encuentro tu pokemon Favorito</p>";
+    console.log("Error: El nombre del pokemon no puede estar vacio");
+    const title = "Hey !";
+    const message =
+      "Please, Write a correct Name to get your <span>Pokemon</span>";
+    createAlert(title, message);
   }
-});
-
+};
 // btn_all.addEventListener("click", getAllPokemon(url));
-
 async function getData() {
   const response = await fetch(url);
   const data = await response.json();
@@ -32,11 +33,17 @@ function getAllPokemon(url) {
 async function getPokemon(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
-  const image = data.sprites.other.dream_world.front_default;
-  console.log(image);
-  printPokemon(data, image);
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    const image = data.sprites.other.dream_world.front_default;
+    console.log(image);
+    printPokemon(data, image);
+  } else {
+    const message = `<span>Something was wronge</span>. The pokemon <pan>${name}</pan> was not found`;
+    const title = `Whooops !`;
+    createAlert(title, message);
+  }
 }
 async function getTopPokemon() {
   const data = await getData();
@@ -45,12 +52,46 @@ async function getTopPokemon() {
   });
 }
 function printPokemon(data, image) {
-  const container = document.getElementById("cards");
-  container.innerHTML += `
+  const lightBox = document.createElement("div");
+  lightBox.setAttribute("class", "lightBox");
+  document.body.appendChild(lightBox);
+  const stats = data.stats;
+  //console.log(stats);
+  const list = document.createElement("ul");
+  stats.forEach((stat) => {
+    const name = stat.stat.name;
+    const baseStat = stat.base_stat;
+    list.innerHTML += `<li class='stat'>${name} : ${baseStat}</li>`;
+  });
+  console.log(list);
+  lightBox.innerHTML += `
     <div class="card">
       <img src=${image}>
-      <p class="name">${data.name}</p>
-    </div>`;
+      <h3 class="name">${data.name}</h3>
+      <div class="stats">
+        ${list.innerHTML} 
+      </div>
+      <a id="btn_close_alert">Close</a>
+    </div>`; 
 }
 
-// getTopPokemon();
+function createAlert(title, message) {
+  const lightBox = document.createElement("div");
+  const alert = document.createElement("div");
+  document.body.appendChild(lightBox);
+  lightBox.setAttribute("class", "lightBox");
+  alert.setAttribute("class", "alert");
+  lightBox.appendChild(alert);
+  alert.innerHTML = `
+      <h3>${title}</h3>
+      <p>${message}</p>
+      <a id="btn_close_alert">Close</a>
+    `;
+  closeAlert(lightBox);
+}
+function closeAlert(lightBox) {
+  const alert = document.getElementById("btn_close_alert");
+  alert.addEventListener("click", () => {
+    document.body.removeChild(lightBox);
+  });
+}

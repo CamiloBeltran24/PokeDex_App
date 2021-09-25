@@ -2,6 +2,11 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  position: relative;
+  height: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -213,6 +218,93 @@ header nav a:hover {
   font-size: 3rem;
   text-transform: capitalize;
   color: #6b6b6b;
+}
+
+.lightBox {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.603);
+  z-index: 100;
+}
+.lightBox .alert {
+  width: 80%;
+  text-align: center;
+  color: #fff;
+  padding: 2.5rem;
+  background-color: #ef5350;
+  border-radius: 0.8rem;
+}
+.lightBox .alert h3 {
+  font-size: 2.2rem;
+  font-family: "Press Start 2P", cursive;
+  margin: 1.5rem 0;
+}
+.lightBox .alert p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
+  margin: 1.5rem 0 0.7rem 0;
+}
+.lightBox .alert p span {
+  font-weight: 700;
+}
+.lightBox .alert a {
+  display: inline-block;
+  padding: 1.3rem 2.5rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  color: #ef5350;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.lightBox .card {
+  width: 80%;
+  padding: 2rem;
+  height: auto;
+  text-align: center;
+  background-color: #fff;
+  color: #ef5350;
+  border-radius: 1rem;
+}
+.lightBox .card h3 {
+  margin: 1.5rem;
+  font-size: 2.5rem;
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+}
+.lightBox .card .stats {
+  width: 100%;
+  height: auto;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.lightBox .card .stats li {
+  font-size: 1.8rem;
+  list-style: none;
+}
+.lightBox .card a {
+  display: inline-block;
+  padding: 1.3rem 2.5rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  color: #ef5350;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #ef5350;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
