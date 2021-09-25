@@ -1,11 +1,11 @@
 html {
   font-size: 62.5%;
-  height: 100vh;
+  max-height: 100vh;
 }
 
 body {
   position: relative;
-  height: auto;
+  height: 100%;
 }
 
 * {
@@ -92,14 +92,14 @@ header nav a:hover {
   background-size: cover;
   background-attachment: fixed;
 }
-.hero back figure {
+.hero figure {
   position: relative;
   width: 100%;
   height: 150px;
   text-align: center;
   z-index: 1;
 }
-.hero back figure img {
+.hero figure img {
   width: 270px;
   margin: 0 auto;
 }
