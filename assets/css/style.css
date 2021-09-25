@@ -141,41 +141,51 @@ header nav a:hover {
   width: 100%;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.search_forms form p {
+.search_forms form h2 {
+  width: 90%;
+  line-height: 1.6rem;
   text-align: center;
   color: #3a3a3a;
   font-weight: 700;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.3rem;
+  margin: 2.5rem auto;
 }
 .search_forms form label {
-  width: 100%;
+  width: 85%;
   color: #3a3a3a;
-  font-family: "Roboto", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.2rem;
 }
 .search_forms form label input,
 .search_forms form label select {
-  width: 70%;
+  width: 62%;
   height: 3rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #3a3a3a;
   outline: none;
   font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  color: #3a3a3a;
 }
 .search_forms form label input:focus,
 .search_forms form label select:focus {
   border-color: #feca1b;
 }
 .search_forms form label button {
+  font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 .search_forms hr {
-  width: 80%;
+  width: 70%;
   height: 0.25rem;
-  margin: 0 auto;
+  margin: 0.5rem auto 1rem;
   color: #ef5350;
   background-color: #ef5350;
 }
@@ -246,11 +256,14 @@ header nav a:hover {
   margin: 1.5rem 0;
 }
 .lightBox .alert p {
+  margin: 2.5rem 0 0.7rem 0;
   font-family: "Roboto", sans-serif;
   font-size: 1.8rem;
-  margin: 1.5rem 0 0.7rem 0;
+  font-weight: 300;
 }
 .lightBox .alert p span {
+  text-transform: capitalize;
+  font-size: 1.9rem;
   font-weight: 700;
 }
 .lightBox .alert a {
@@ -274,6 +287,17 @@ header nav a:hover {
   color: #ef5350;
   border-radius: 1rem;
 }
+.lightBox .card h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  color: #242424;
+  margin-bottom: 1rem;
+}
+.lightBox .card hr {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
 .lightBox .card h3 {
   margin: 1.5rem;
   font-size: 2.5rem;
@@ -283,14 +307,19 @@ header nav a:hover {
 .lightBox .card .stats {
   width: 100%;
   height: auto;
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  padding: 2rem;
+  text-align: left;
 }
 .lightBox .card .stats li {
+  margin-left: 1.5rem;
   font-size: 1.8rem;
   list-style: none;
+  color: #2b2b2b;
+  font-family: "Roboto", sans-serif;
+}
+.lightBox .card .stats li span {
+  font-weight: 700;
+  text-transform: capitalize;
 }
 .lightBox .card a {
   display: inline-block;
@@ -303,6 +332,7 @@ header nav a:hover {
   font-weight: 700;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.7);
+  margin: 0.5rem auto;
   background-color: #ef5350;
   color: #fff;
 }

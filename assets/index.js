@@ -3,7 +3,8 @@ const btn_all = document.getElementById("btn_all");
 const btn_name = document.getElementById("searchByName");
 
 btn_name.onclick = function () {
-  const name = document.getElementById("name").value;
+  const name = document.getElementById("name").value.toLowerCase();
+  console.log(name);
   if (name !== undefined && name !== null && name !== "") {
     getPokemon(name);
   } else {
@@ -40,7 +41,7 @@ async function getPokemon(name) {
     console.log(image);
     printPokemon(data, image);
   } else {
-    const message = `<span>Something was wronge</span>. The pokemon <pan>${name}</pan> was not found`;
+    const message = `<span>Something was wronge</span>. The pokemon called <span>${name}</span> was not found`;
     const title = `Whooops !`;
     createAlert(title, message);
   }
@@ -61,18 +62,21 @@ function printPokemon(data, image) {
   stats.forEach((stat) => {
     const name = stat.stat.name;
     const baseStat = stat.base_stat;
-    list.innerHTML += `<li class='stat'>${name} : ${baseStat}</li>`;
+    list.innerHTML += `<li class='stat'><span>${name}</span> : ${baseStat}</li>`;
   });
   console.log(list);
   lightBox.innerHTML += `
     <div class="card">
+      <h2>Here is your favorite pokemon</h2>
+      <hr>
       <img src=${image}>
       <h3 class="name">${data.name}</h3>
-      <div class="stats">
+      <ul class="stats">
         ${list.innerHTML} 
-      </div>
+      </ul>
       <a id="btn_close_alert">Close</a>
-    </div>`; 
+    </div>`;
+  closeAlert(lightBox);
 }
 
 function createAlert(title, message) {
@@ -93,5 +97,6 @@ function closeAlert(lightBox) {
   const alert = document.getElementById("btn_close_alert");
   alert.addEventListener("click", () => {
     document.body.removeChild(lightBox);
+    document.getElementById("name").value = "";
   });
 }

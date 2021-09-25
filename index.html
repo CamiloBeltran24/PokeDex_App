@@ -41,10 +41,10 @@
     </div>
     <section class="search_forms">
       <form name="pokemonName">
-        <p>Search your favorite pokemon !</p>
+        <h2>Search your favorite pokemon !</h2>
         <label for="name"
           >Pokemon name: <br />
-          <input type="text" name="" id="name" />
+          <input type="text" name="" id="name" placeholder="Name" />
           <button type="button" class="button_principal" id="searchByName">
             Search
           </button>
@@ -52,10 +52,11 @@
       </form>
       <hr />
       <form action="" name="pokemonType">
-        <p>you don't have any favorite pokemon ?, search them by type</p>
+        <h2>you don't have any favorite pokemon ?, search them by type</h2>
         <label for="">
-          Tipo: <br />
+          Type: <br />
           <select name="pokemonType" id="typeSelect">
+            <option value="" disabled selected>Select a type</option>
             <option value="Normal">Normal</option>
             <option value="Fire">Fire</option>
             <option value="Water">Water</option>
@@ -86,7 +87,6 @@
         <button type="button" class="button_principal">Random 10</button>
       </div>
     </section>
-    
 
     <div class="cards_container" id="cards"></div>
     <script src="./assets/index.js"></script>

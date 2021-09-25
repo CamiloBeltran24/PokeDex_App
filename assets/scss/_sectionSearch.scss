@@ -10,41 +10,52 @@
     width: 100%;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      width: 90%;
+      line-height: 1.6rem;
       text-align: center;
       color: rgb(58, 58, 58);
       font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
+      font-family: $Font-title;
+      font-size: 1.3rem;
+      margin: 2.5rem auto;
     }
     label {
-      width: 100%;
+      width: 85%;
       // padding: 1rem;
       color: rgb(58, 58, 58);
-      font-family: $Font-text;
+      // font-family: $Font-text;
+      font-family: $Font-title;
+      font-size: 1.2rem;
       input,
       select {
-        width: 70%;
+        width: 62%;
         height: 3rem;
         padding: 0.5rem;
         border-radius: 0.5rem;
         border: 1px solid rgb(58, 58, 58);
         outline: none;
         font-size: 1.6rem;
+        font-family: $Font-text;
+        color: rgb(58, 58, 58);
         &:focus {
           border-color: $secondaryColor;
         }
       }
       button {
+        font-family: $Font-text;
         font-size: 1.6rem;
-        margin-left: 1.5rem;
+        margin-left: 1rem;
       }
     }
   }
   hr {
-    width: 80%;
+    width: 70%;
     height: 0.25rem;
-    margin: 0 auto;
+    margin: 0.5rem auto 1rem;
     color: $principalColor;
     background-color: $principalColor;
   }

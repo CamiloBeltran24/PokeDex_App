@@ -22,10 +22,13 @@
       margin: 1.5rem 0;
     }
     p {
+      margin: 2.5rem 0 0.7rem 0;
       font-family: $Font-text;
       font-size: 1.8rem;
-      margin: 1.5rem 0 0.7rem 0;
+      font-weight: 300;
       span {
+        text-transform: capitalize;
+        font-size: 1.9rem;
         font-weight: 700;
       }
     }
@@ -41,6 +44,17 @@
     background-color: #fff;
     color: $principalColor;
     border-radius: 1rem;
+    h2 {
+      font-family: $Font-text;
+      font-size: 2.5rem;
+      color: rgb(36, 36, 36);
+      margin-bottom: 1rem;
+    }
+    hr {
+      width: 70%;
+      margin: auto;
+      margin-bottom: 1.5rem;
+    }
     h3 {
       margin: 1.5rem;
       font-size: 2.5rem;
@@ -50,17 +64,24 @@
     .stats {
       width: 100%;
       height: auto;
-      font-size: 1.8rem;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 2rem;
+      text-align: left;
       li {
+        // display: inline-block;
+        margin-left: 1.5rem;
         font-size: 1.8rem;
         list-style: none;
+        color: rgb(43, 43, 43);
+        font-family: $Font-text;
+        span {
+          font-weight: 700;
+          text-transform: capitalize;
+        }
       }
     }
     a {
       @include alertButtons;
+      margin: 0.5rem auto;
       background-color: $principalColor;
       color: #fff;
     }
