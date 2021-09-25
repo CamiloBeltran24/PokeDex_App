@@ -1,6 +1,7 @@
 const url = "https://pokeapi.co/api/v2/pokemon/";
 const btn_all = document.getElementById("btn_all");
 const btn_name = document.getElementById("searchByName");
+const bnt_type = document.getElementById("btn_type");
 
 btn_name.onclick = function () {
   const name = document.getElementById("name").value.toLowerCase();
@@ -14,6 +15,10 @@ btn_name.onclick = function () {
       "Please, Write a correct Name to get your <span>Pokemon</span>";
     createAlert(title, message);
   }
+};
+bnt_type.onclick = function () {
+  const type = document.getElementById("typeSelect").value;
+  console.log(type);
 };
 // btn_all.addEventListener("click", getAllPokemon(url));
 async function getData() {

@@ -88,18 +88,18 @@ header nav a:hover {
   align-items: center;
   background-image: url(../img/pikachu_glass.jpg);
   background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
+  background-position: top left;
+  background-size: cover;
   background-attachment: fixed;
 }
-.hero figure {
+.hero back figure {
   position: relative;
   width: 100%;
   height: 150px;
   text-align: center;
   z-index: 1;
 }
-.hero figure img {
+.hero back figure img {
   width: 270px;
   margin: 0 auto;
 }
