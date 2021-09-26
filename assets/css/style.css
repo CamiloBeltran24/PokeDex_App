@@ -1,9 +1,11 @@
 html {
   font-size: 62.5%;
+  height: 100vh;
 }
 
 body {
   position: relative;
+  min-height: 100%;
 }
 
 * {
