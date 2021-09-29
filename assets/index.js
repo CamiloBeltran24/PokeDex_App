@@ -1,8 +1,9 @@
-const url = "https://pokeapi.co/api/v2/pokemon/";
+const originalUrl = "https://pokeapi.co/api/v2/pokemon/";
 const btn_all = document.getElementById("btn_all");
 const btn_name = document.getElementById("searchByName");
-const bnt_type = document.getElementById("btn_type");
+const btn_type = document.getElementById("btn_type");
 
+//Inicio Funcion que da accion al boton de busqueda por nombre
 btn_name.onclick = function () {
   const name = document.getElementById("name").value.toLowerCase();
   console.log(name);
@@ -16,23 +17,36 @@ btn_name.onclick = function () {
     createAlert(title, message);
   }
 };
-bnt_type.onclick = function () {
+
+//Funcion de accion para el boton de busqueda por categoria
+btn_type.onclick = function () {
   const type = document.getElementById("typeSelect").value;
   console.log(type);
+  if (type != null && type != undefined && type != "") {
+    getPokemonsByType(type);
+  } else {
+    alert("Select a type ! ");
+  }
 };
 // btn_all.addEventListener("click", getAllPokemon(url));
-async function getData() {
+async function getData(url) {
   const response = await fetch(url);
   const data = await response.json();
   return data.results;
 }
+
 function getAllPokemon(url) {
   const limit = "?limit=1200";
   const new_url = `https://pokeapi.co/api/v2/pokemon/${limit}`;
+  let counter = 0;
   fetch(new_url)
     .then((response) => response.json())
     .then((data) => {
-      data.results.forEach((pokemon) => getPokemon(pokemon.name));
+      data.results.forEach((pokemon) => {
+        console.log(pokemon.name);
+        counter++;
+      });
+      console.log(counter);
     })
     .catch((error) => console.error(error));
 }
@@ -50,6 +64,42 @@ async function getPokemon(name) {
     const title = `Whooops !`;
     createAlert(title, message);
   }
+}
+
+async function getPokemonsByType() {
+  const url = "https://pokeapi.co/api/v2/pokemon/";
+  const results = await getData(originalUrl);
+  console.log(results);
+}
+
+async function allPokemons(url) {
+  // const response = await fetch(url);
+  // const data = await response.json();
+  // const allQuantity = data.count;
+  // console.log("Cantidad de pokemons en la API: " + allQuantity);
+  // console.log("Next: " + data.next);
+  // console.log("Esta consulta trae: " + data.results.length + " resultados");
+  // createListOfPokemons(data);
+  // const oneByOne = async (pokemons) => {
+  //   pokemons.forEach((pokemon) => {
+  //     console.log(pokemon.name);
+  //   });
+  // };
+  // oneByOne(data.results);
+}
+function createListOfPokemons(elements) {
+  const template = `
+  <div class=list_container>
+    <p>Name List:</p>
+    <ul>
+      ${elements}
+    </ul>
+    <div class="buttonsList">
+      <button type="button">Next</button>
+      <button type="button">Previus</button>
+    </div>
+  </div>
+  `;
 }
 async function getTopPokemon() {
   const data = await getData();

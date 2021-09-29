@@ -5,7 +5,7 @@
   "main": "./assets/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server",
+    "start": "live-server --port=3000",
     "sass": "sass --watch ./assets/scss/style.scss ./assets/css/style.css"
   },
   "keywords": [
