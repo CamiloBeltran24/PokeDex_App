@@ -288,6 +288,9 @@ header nav a:hover {
   color: #ef5350;
   border-radius: 1rem;
 }
+.lightBox .card img {
+  width: 100%;
+}
 .lightBox .card h2 {
   font-family: "Roboto", sans-serif;
   font-size: 2.5rem;

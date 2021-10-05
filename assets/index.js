@@ -20,10 +20,11 @@ btn_name.onclick = function () {
 
 //Funcion de accion para el boton de busqueda por categoria
 btn_type.onclick = function () {
-  const type = document.getElementById("typeSelect").value;
+  const type = document.getElementById("typeSelect").value.toLowerCase();
   console.log(type);
   if (type != null && type != undefined && type != "") {
-    getPokemonsByType(type);
+    // getPokemonsByType(type);
+    getAllPokemon(type);
   } else {
     alert("Select a type ! ");
   }
@@ -31,24 +32,33 @@ btn_type.onclick = function () {
 // btn_all.addEventListener("click", getAllPokemon(url));
 async function getData(url) {
   const response = await fetch(url);
-  const data = await response.json();
-  return data.results;
+  // console.log("Imprimiendo desde getData  " + response + url);
+  if (response.ok) {
+    const data = await response.json();
+    return data.results;
+  } else {
+    return "ERROOOOOOR";
+  }
 }
 
-function getAllPokemon(url) {
+function getAllPokemon(type) {
   const limit = "?limit=1200";
   const new_url = `https://pokeapi.co/api/v2/pokemon/${limit}`;
-  let counter = 0;
+  let correctPokemon = [];
   fetch(new_url)
     .then((response) => response.json())
     .then((data) => {
       data.results.forEach((pokemon) => {
-        console.log(pokemon.name);
-        counter++;
+        // console.log(pokemon.url);
+        const filtro = filterByType(pokemon.url, type);
+        filtro.then((response) => {
+          if (response) {
+            correctPokemon.push(pokemon);
+          }
+        });
       });
-      console.log(counter);
-    })
-    .catch((error) => console.error(error));
+      console.log(correctPokemon);
+    });
 }
 async function getPokemon(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
@@ -66,47 +76,16 @@ async function getPokemon(name) {
   }
 }
 
-async function getPokemonsByType() {
-  const url = "https://pokeapi.co/api/v2/pokemon/";
-  const results = await getData(originalUrl);
-  console.log(results);
+async function filterByType(url, type) {
+  const response = await fetch(url);
+  const data = await response.json();
+  for (let i = 0; i < data.types.length; i++) {
+    if (data.types[i].type.name == type) {
+      return true;
+    }
+  }
 }
 
-async function allPokemons(url) {
-  // const response = await fetch(url);
-  // const data = await response.json();
-  // const allQuantity = data.count;
-  // console.log("Cantidad de pokemons en la API: " + allQuantity);
-  // console.log("Next: " + data.next);
-  // console.log("Esta consulta trae: " + data.results.length + " resultados");
-  // createListOfPokemons(data);
-  // const oneByOne = async (pokemons) => {
-  //   pokemons.forEach((pokemon) => {
-  //     console.log(pokemon.name);
-  //   });
-  // };
-  // oneByOne(data.results);
-}
-function createListOfPokemons(elements) {
-  const template = `
-  <div class=list_container>
-    <p>Name List:</p>
-    <ul>
-      ${elements}
-    </ul>
-    <div class="buttonsList">
-      <button type="button">Next</button>
-      <button type="button">Previus</button>
-    </div>
-  </div>
-  `;
-}
-async function getTopPokemon() {
-  const data = await getData();
-  const names = data.slice(0, 10).map((data) => {
-    getPokemon(data.name);
-  });
-}
 function printPokemon(data, image) {
   const lightBox = document.createElement("div");
   lightBox.setAttribute("class", "lightBox");
